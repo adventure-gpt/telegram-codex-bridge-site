@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eef5f8" />
+    <meta
+      name="description"
+      content="Use a private Telegram bot as a second client for the exact Codex Desktop task you choose."
+    />
+    <meta property="og:title" content="Telegram Codex Bridge" />
+    <meta
+      property="og:description"
+      content="Move between Codex Desktop and Telegram without abandoning the task already on your screen."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://telegram-codex-bridge.pages.dev/" />
+    <link rel="canonical" href="https://telegram-codex-bridge.pages.dev/" />
+    <title>Telegram Codex Bridge</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Telegram Codex Bridge home">
+        <span class="brand-mark" aria-hidden="true">T↔C</span>
+        <span>Telegram Codex Bridge</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#setup">Setup</a>
+        <a href="#security">Security</a>
+        <a href="https://github.com/adventure-gpt/telegram-codex-bridge" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Windows utility · v0.3.0</p>
+          <h1>One Codex task.<br /><span>In your pocket.</span></h1>
+          <p class="hero-lede">
+            Use a private Telegram bot as a second client for the exact Codex Desktop task you choose.
+            Start, steer, queue, and receive replies while the normal Desktop interface stays yours.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe"
+              data-download
+            >
+              <span>Download for Windows</span>
+              <small>Self-contained installer</small>
+            </a>
+            <a class="text-link" href="#setup">Read the 4-step setup <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="release-line">
+            64-bit Windows · Codex Desktop required · No separate Node.js install
+          </p>
+          <aside class="caveat" aria-label="Installer signing notice">
+            <strong>Unsigned beta.</strong> Windows may show an Unknown Publisher warning. Verify the
+            SHA-256 on the GitHub release before running the installer.
+          </aside>
+        </div>
+
+        <div class="bridge-visual" aria-label="Telegram and Codex Desktop connected to the same Codex task">
+          <div class="visual-label">LIVE ROUTE / LOCAL LOOPBACK</div>
+          <article class="endpoint endpoint-codex">
+            <div class="endpoint-head">
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>DESKTOP</span>
+            </div>
+            <div class="endpoint-body">
+              <span class="endpoint-icon" aria-hidden="true">C</span>
+              <div>
+                <strong>Codex Desktop</strong>
+                <small>Normal task list + UI</small>
+              </div>
+            </div>
+          </article>
+
+          <div class="route" aria-hidden="true">
+            <span class="route-port route-port-left"></span>
+            <span class="route-line"></span>
+            <span class="route-packet"></span>
+            <span class="route-port route-port-right"></span>
+            <span class="route-caption">same task history</span>
+          </div>
+
+          <article class="endpoint endpoint-telegram">
+            <div class="endpoint-head">
+              <span>PRIVATE CHAT</span>
+              <span class="lock" aria-hidden="true">●</span>
+            </div>
+            <div class="endpoint-body">
+              <span class="endpoint-icon telegram-plane" aria-hidden="true">➤</span>
+              <div>
+                <strong>Telegram bot</strong>
+                <small>Fresh · steer · queue</small>
+              </div>
+            </div>
+          </article>
+
+          <div class="task-card">
+            <span>INBOUND OWNER</span>
+            <strong>Only the task you link</strong>
+            <small>Linking another task intentionally moves the shared bot.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement" aria-labelledby="statement-title">
+        <p class="section-kicker">The useful bit</p>
+        <h2 id="statement-title">Desktop and Telegram are two clients—not two disconnected conversations.</h2>
+        <p>
+          The bridge starts the exact app-server bundled with your installed Codex Desktop package, then
+          connects both surfaces over a loopback-only WebSocket. That keeps the task list visible and the
+          active task steerable from either place.
+        </p>
+      </section>
+
+      <section class="setup-section" id="setup" aria-labelledby="setup-title">
+        <div class="section-heading">
+          <p class="section-kicker">First run</p>
+          <h2 id="setup-title">Four steps, then just talk.</h2>
+          <p>The token never belongs in a Codex prompt. The installer asks for it locally in a masked field.</p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span class="step-number">1</span>
+            <div>
+              <h3>Create your bot</h3>
+              <p>Open <strong>@BotFather</strong> in Telegram, run <code>/newbot</code>, and keep the token ready.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div>
+              <h3>Install and pair</h3>
+              <p>Run the installer, enter the token in its masked prompt, then send the generated <code>/pair</code> command to your bot privately.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div>
+              <h3>Restart Desktop once</h3>
+              <p>Fully quit Codex Desktop—not only its window—then reopen it so Desktop joins the shared app-server.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <div>
+              <h3>Link the task you want</h3>
+              <p>Paste this into that Codex task:</p>
+              <div class="prompt-box">
+                <code>Use $telegram-codex to link this task to my shared Telegram bot.</code>
+                <button class="copy-button" type="button" data-copy="Use $telegram-codex to link this task to my shared Telegram bot.">Copy prompt</button>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="download-strip">
+          <div>
+            <span>READY?</span>
+            <strong>TelegramCodexBridgeSetup.exe</strong>
+          </div>
+          <a class="button button-dark" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe">Download v0.3.0</a>
+        </div>
+      </section>
+
+      <section class="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-heading compact">
+          <p class="section-kicker">Two-way control</p>
+          <h2 id="capabilities-title">Use the message that fits the moment.</h2>
+        </div>
+        <div class="capability-grid">
+          <article>
+            <span class="command">plain message</span>
+            <h3>Automatic routing</h3>
+            <p>Starts a fresh turn while idle and becomes a native steer while Codex is working.</p>
+          </article>
+          <article>
+            <span class="command">/fresh</span>
+            <h3>A new turn</h3>
+            <p>Starts now, or waits behind the active turn if Codex is still working.</p>
+          </article>
+          <article>
+            <span class="command">/steer</span>
+            <h3>Change course now</h3>
+            <p>Adds your message to the active turn using Codex's native steering behavior.</p>
+          </article>
+          <article>
+            <span class="command">/queue</span>
+            <h3>Follow up later</h3>
+            <p>Stores a FIFO fresh turn and sends it only after the current turn fully completes.</p>
+          </article>
+          <article>
+            <span class="command">image / file</span>
+            <h3>Keep the context</h3>
+            <p>Sends photos and files up to 20 MB into the linked task as local attachments.</p>
+          </article>
+          <article>
+            <span class="command">from any task</span>
+            <h3>Outbound alerts</h3>
+            <p>Ask any Codex task to notify you on Telegram without moving the shared inbound link.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="security-section" id="security" aria-labelledby="security-title">
+        <div class="security-copy">
+          <p class="section-kicker">Know the boundary</p>
+          <h2 id="security-title">Private by construction, powerful by choice.</h2>
+          <p>
+            The local app-server listens only on <code>127.0.0.1</code>. Bot tokens are encrypted with
+            Windows DPAPI for your user account, and messages are accepted only from the private Telegram
+            user and chat that completed pairing.
+          </p>
+          <p>
+            Telegram messages still transit Telegram, and Codex work still uses the services configured by
+            Codex Desktop. Treat the bot like remote access to your task.
+          </p>
+        </div>
+        <div class="boundary-list">
+          <div><span>01</span><strong>No LAN listener</strong><small>Loopback WebSocket only</small></div>
+          <div><span>02</span><strong>No token in prompts</strong><small>Masked local DPAPI storage</small></div>
+          <div><span>03</span><strong>No CLI replacement</strong><small><code>CODEX_CLI_PATH</code> stays empty</small></div>
+          <div class="warning-row"><span>!</span><strong>Full Access turns</strong><small>Telegram fresh turns use approval <code>never</code> and <code>dangerFullAccess</code></small></div>
+        </div>
+      </section>
+
+      <section class="dedicated-section" aria-labelledby="dedicated-title">
+        <div>
+          <p class="section-kicker">More than one task?</p>
+          <h2 id="dedicated-title">Give the second task its own bot.</h2>
+          <p>
+            The shared bot deliberately follows one inbound task at a time. If two tasks must remain
+            bidirectional simultaneously, create a second BotFather bot and use a dedicated profile.
+          </p>
+        </div>
+        <div class="prompt-box prompt-box-large">
+          <code>Use $telegram-codex-dedicated to configure and link a dedicated Telegram bot profile named work to this task.</code>
+          <button class="copy-button" type="button" data-copy="Use $telegram-codex-dedicated to configure and link a dedicated Telegram bot profile named work to this task.">Copy prompt</button>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-title">
+        <div class="section-heading compact">
+          <p class="section-kicker">Recovery</p>
+          <h2 id="faq-title">Nothing hidden when something goes wrong.</h2>
+        </div>
+        <details>
+          <summary>Will a new link delete or merge my Codex tasks?</summary>
+          <p>No. It only changes which existing task receives future inbound Telegram messages through the shared bot.</p>
+        </details>
+        <details>
+          <summary>Does a console or any foreground window need to stay open?</summary>
+          <p>No. The bridge runs as a hidden per-user Windows logon task. There is no persistent console window.</p>
+        </details>
+        <details>
+          <summary>What if Codex Desktop does not load normally?</summary>
+          <p>Uninstall Telegram Codex Bridge, fully quit Desktop, and reopen it. Uninstall restores the previous WebSocket environment and never installs a replacement <code>CODEX_CLI_PATH</code>.</p>
+        </details>
+        <details>
+          <summary>How do I inspect it without exposing my token?</summary>
+          <p>Open <strong>Telegram Codex Bridge Status</strong> from the Start menu. It reports the task, service, and pairing state without printing credentials.</p>
+        </details>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <p class="section-kicker">Keep the task. Change the screen.</p>
+        <h2 id="final-title">Your next steer can come from Telegram.</h2>
+        <div>
+          <a class="button button-primary" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe">
+            <span>Download for Windows</span>
+            <small>v0.3.0 · unsigned beta</small>
+          </a>
+          <a class="text-link" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases" rel="noreferrer">Release notes and SHA-256</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Telegram Codex Bridge · MIT licensed</span>
+      <span>No analytics · No cookies · No hosted bot tokens</span>
+      <a href="https://github.com/adventure-gpt/telegram-codex-bridge/issues" rel="noreferrer">Report an issue</a>
+    </footer>
+    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
