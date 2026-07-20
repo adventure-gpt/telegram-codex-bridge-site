@@ -447,6 +447,16 @@ code { font-family: "Cascadia Mono", Consolas, monospace; font-size: 0.9em; }
 .dedicated-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(3rem, 8vw, 8rem); align-items: center; border-top: 1px solid #b8cbd4; }
 .prompt-box-large { margin: 0; padding: 22px; flex-direction: column; align-items: flex-start; }
 .prompt-box-large .copy-button { align-self: flex-end; }
+.verification-note {
+  margin: 0;
+  padding: 15px 16px;
+  border-left: 3px solid var(--signal);
+  color: #526975;
+  background: #fff8f1;
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+.verification-note strong { color: #9b4d18; }
 
 .faq { border-top: 1px solid #b8cbd4; }
 .faq details { border-bottom: 1px solid #afc3cc; }

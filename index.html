@@ -36,7 +36,7 @@
     <main id="main">
       <section class="hero" id="top">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> Windows utility · v0.3.1</p>
+          <p class="eyebrow"><span class="status-dot"></span> Windows utility · v0.3.2</p>
           <h1>One Codex task.<br /><span>In your pocket.</span></h1>
           <p class="hero-lede">
             Use a private Telegram bot as a second client for the exact Codex Desktop task you choose.
@@ -165,7 +165,7 @@
             <span>READY?</span>
             <strong>TelegramCodexBridgeSetup.exe</strong>
           </div>
-          <a class="button button-dark" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe">Download v0.3.1</a>
+          <a class="button button-dark" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe">Download v0.3.2</a>
         </div>
       </section>
 
@@ -242,6 +242,11 @@
         <div class="prompt-box prompt-box-large">
           <code>Use $telegram-codex-dedicated to configure and link a dedicated Telegram bot profile named work to this task.</code>
           <button class="copy-button" type="button" data-copy="Use $telegram-codex-dedicated to configure and link a dedicated Telegram bot profile named work to this task.">Copy prompt</button>
+          <p class="verification-note">
+            <strong>New in v0.3.2:</strong> the skill verifies the bot, background service, Desktop connection,
+            and exact task link before it says setup succeeded. Large and long-running tasks are checked from
+            the lightweight task index instead of loading their full history.
+          </p>
         </div>
       </section>
 
@@ -260,7 +265,11 @@
         </details>
         <details>
           <summary>What if Codex Desktop does not load normally?</summary>
-          <p>Open <strong>Restart Telegram Codex Bridge</strong> from the Start menu, wait for the green success message, then fully quit and reopen Desktop. If that fails, uninstalling the bridge restores the previous WebSocket environment and never installs a replacement <code>CODEX_CLI_PATH</code>.</p>
+          <p>Fully quit Codex Desktop from the system tray or Task Manager, open <strong>Restart Telegram Codex Bridge</strong> from the Start menu, wait for the green success message, then reopen Desktop. The recovery command refuses to sever a Desktop session that is still attached. If that fails, uninstalling the bridge restores the previous WebSocket environment and never installs a replacement <code>CODEX_CLI_PATH</code>.</p>
+        </details>
+        <details>
+          <summary>Will an old or very large Codex task make the bridge hang?</summary>
+          <p>v0.3.2 routes messages from Codex's lightweight task index and never opens the full conversation history just to check whether a turn is active. A cold task is resumed without returning its previous turns before the new Telegram turn starts.</p>
         </details>
         <details>
           <summary>How do I inspect it without exposing my token?</summary>
@@ -274,7 +283,7 @@
         <div>
           <a class="button button-primary" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases/latest/download/TelegramCodexBridgeSetup.exe">
             <span>Download for Windows</span>
-            <small>v0.3.1 · unsigned beta</small>
+            <small>v0.3.2 · unsigned beta</small>
           </a>
           <a class="text-link" href="https://github.com/adventure-gpt/telegram-codex-bridge/releases" rel="noreferrer">Release notes and SHA-256</a>
         </div>
