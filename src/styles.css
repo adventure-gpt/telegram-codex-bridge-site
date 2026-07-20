@@ -193,6 +193,38 @@ h1 span { color: var(--blue-dark); }
   font: 600 0.75rem "Cascadia Mono", Consolas, monospace;
 }
 
+.download-count {
+  width: fit-content;
+  min-height: 42px;
+  margin: 0.9rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.72rem;
+  padding: 0.4rem 0.78rem 0.4rem 0.42rem;
+  border: 1px solid #b7ccd6;
+  border-radius: 4px;
+  background: rgba(238, 248, 252, 0.76);
+  color: #405865;
+  font: 650 0.72rem "Cascadia Mono", Consolas, monospace;
+  line-height: 1.35;
+}
+
+.download-count-value {
+  min-width: 42px;
+  min-height: 30px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 0.42rem;
+  border-radius: 3px;
+  background: var(--signal);
+  color: #35251d;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.download-count[data-state="loading"] .download-count-value { color: #7f5c4b; }
+.download-count[data-state="error"] { color: #745e52; background: rgba(255, 250, 244, 0.72); }
+
 .caveat {
   max-width: 620px;
   margin-top: 1.6rem;
@@ -523,6 +555,7 @@ footer a { color: #315466; }
   h1 { font-size: clamp(3.2rem, 16vw, 5rem); }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button-primary { width: 100%; }
+  .download-count { width: 100%; }
   .bridge-visual { min-height: 480px; padding: 54px 18px 24px; }
   .endpoint-telegram { margin-left: 22px; }
   .route { left: 38px; right: 38px; }
